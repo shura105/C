@@ -1,0 +1,5 @@
+#Запустить сервер на порт 9000
+./tcpserver localhost 9000
+
+#Подключение клиента к серверу
+./tcpclient localhost 9000

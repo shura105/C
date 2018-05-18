@@ -1,25 +1,10 @@
-/*
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdarg.h>
-#include <string.h>
-#include <errno.h>
-#include <netdb.h>
-#include <fcntl.h>
-#include <sys/time.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-*/
-
 #include "skel.h"
 #include "etcp.h"
 
 char *program_name;
 
-//------------ MAIN ------------------------------------------------------
-    int main( int argc, char **argv )
+//------------ MAIN -----------------------------------------------
+int main( int argc, char **argv )
 {
     struct sockaddr_in peer;
     SOCKET s;
@@ -37,9 +22,6 @@ char *program_name;
     client( s, &peer );
     EXIT( 0 );
 }
-//------------------------------------------------------------------------
-
-
 
 /*----Функция set_address-------------------------------------------------
 
@@ -50,7 +32,7 @@ void set_address( char *host, char *port,
     struct sockaddr_in *sap, char *protocol );
 ------------------------------------------------------------------------*/
 
-    void set_address( char *hname, char *sname, 
+static void set_address( char *hname, char *sname, 
 	struct sockaddr_in *sap, char *protocol )
     {
 	struct servent *sp;
@@ -103,8 +85,9 @@ void error( int status, int err, char *format, ...);
 	if ( status )
 	    EXIT( status );
     }
-//----------------------------------------------------------------------
- void client( SOCKET s, struct sockaddr_in *peer )
+
+//-----------------------tcpclient_func.scel--------------------------------
+static void client( SOCKET s, struct sockaddr_in *peerp )
 {
     int rc;
     char buf[ 120 ];
@@ -117,8 +100,3 @@ void error( int status, int err, char *format, ...);
 	write( 1, buf, rc );
     }
 }
-
-
-
-
-

@@ -1,0 +1,5 @@
+#Запуск сервера
+./tcpserver_hello 9000
+
+#Подключение клиента
+xterm -e "telnet localhost 9000"

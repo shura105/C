@@ -41,7 +41,7 @@ void set_address( char *host, char *port,
 	char *endptr;
 	short port;
 
-	bzero( sap, sizeof( *dap ) );
+	bzero( sap, sizeof( *sap ) );
 	sap->sin_family = AF_INET;
 	if ( hname != NULL )
 	{

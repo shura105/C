@@ -51,9 +51,9 @@ void *smballoc( void );
 void smbfree( void * );
 void smbsend( SOCKET, void * );
 void *smbrecv( SOCKET );
-void set_address( char *, char *, struct sockaddr_in *, char * );
+static void set_address( char *, char *, struct sockaddr_in *, char * );
 void server( SOCKET, struct sockaddr_in * );
-void client( SOCKET, struct sockaddr_in * );
+static void client( SOCKET, struct sockaddr_in * );
 #endif	/* __ETCP_H */
 
 

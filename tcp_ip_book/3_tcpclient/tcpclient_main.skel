@@ -10,7 +10,7 @@ int main( int argc, char **argv )
     s = socket( AF_INET, SOCK_STREAM, 0 );
     if ( !isvalidsock( s ) )
 	error( 1, errno, "ошибка вызова socket" );
-    if ( connect( s, ( struct sockaddr * )&peer ,
+    if ( connect( s, ( struct sockaddr * )&peer,
 	sizeof( peer ) ) )
 	error( 1, errno, "ошибка вызова connect" );
     client( s, &peer );
